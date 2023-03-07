@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-import sys
 def safe_function(fct, *args):
+    import sys
     try:
-        res = fct(*args)
-        except BaseException as e:
-            res = None
-            print("Exception: {}".format(e), file=sys.stderr)
-            finally:
-                return res
+        result = fct(*args)
+    except Exception as i:
+        sys.stderr.write("Exception: {}\n".format(i))
+        result = None
+
+    return (result)
